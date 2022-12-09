@@ -1,8 +1,15 @@
 # macos-displays
 
+## Installation
+
+```zsh
+brew install importre/core/displays
+```
+
 ## Usage
 
 ```zsh
+displays -h
 USAGE: displays [--output <output>]
 
 OPTIONS:
