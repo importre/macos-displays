@@ -1,15 +1,13 @@
-bin_path := $(shell brew --prefix)/bin
-
-all: clean install
+all: clean build
 
 build:
 	swift build -c release --arch arm64 --arch x86_64
 
-install: uninstall build
-	cp .build/apple/Products/Release/Displays "${bin_path}/displays"
-
-uninstall:
-	rm -f "${bin_path}/displays"
+release: clean build
+	gh release create $(VERSION) \
+		--title $(VERSION) \
+		--generate-notes \
+		.build/apple/Products/Release/displays
 
 clean:
 	rm -rf .build
