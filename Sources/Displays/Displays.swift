@@ -2,6 +2,11 @@ import ArgumentParser
 
 @main
 struct Displays: ParsableCommand {
+  static var configuration: CommandConfiguration = .init(
+    commandName: "displays",
+    version: "0.1.0"
+  )
+
   @Option(
     name: .shortAndLong,
     help: "Write to file instead of stdout."
